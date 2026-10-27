@@ -1,0 +1,86 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-cream: #f6efe6;
+  --color-paper: #fffdf9;
+  --color-espresso: #2b1a12;
+  --color-cocoa: #6b4a36;
+  --color-orange: #e8772e;
+  --color-honey: #f2a23a;
+  --color-latte: #eaddcb;
+  --color-matcha: #dce5d0;
+  --color-blush: #f3dcd3;
+  --color-veg: #1f8a3b;
+  --color-nonveg: #b3261e;
+
+  --font-sans: 'Montserrat', ui-sans-serif, system-ui, sans-serif;
+  --font-script: 'Yellowtail', cursive;
+}
+
+html {
+  background: var(--color-cream);
+  color: var(--color-espresso);
+  -webkit-tap-highlight-color: transparent;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--color-cream);
+  font-family: var(--font-sans);
+  overflow-x: hidden;
+}
+
+/* Lenis */
+html.lenis,
+html.lenis body {
+  height: auto;
+}
+.lenis.lenis-smooth {
+  scroll-behavior: auto !important;
+}
+.lenis.lenis-smooth [data-lenis-prevent] {
+  overscroll-behavior: contain;
+}
+.lenis.lenis-stopped {
+  overflow: hidden;
+}
+
+/* Subtle paper grain like the reference */
+.grain {
+  background-image: radial-gradient(rgba(43, 26, 18, 0.05) 1px, transparent 1px);
+  background-size: 6px 6px;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+}
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+.food-shadow {
+  filter: drop-shadow(0 18px 18px rgba(43, 26, 18, 0.28));
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+:focus-visible {
+  outline: 3px solid var(--color-orange);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}
