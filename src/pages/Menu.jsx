@@ -3,7 +3,7 @@ import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
 import Lenis from 'lenis'
 import { rupees, useMenu } from '../lib/store'
-import { FoodImage, Logo, Stars, VegMark } from '../components/Bits'
+import { FoodImage, Logo, VegMark } from '../components/Bits'
 import Intro from '../components/Intro'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -249,10 +249,6 @@ function Hero({ item, play, onDetails, onMenu }) {
           <h1 className={`${titleSize} font-black leading-[0.95] tracking-tight break-words`}>
             <SplitWords text={item.name} />
           </h1>
-          <div data-hero-fade className="mt-2 flex items-center gap-1.5">
-            <Stars value={Number(item.rating) || 4.5} />
-            <span className="text-[15px] font-bold">{Number(item.rating || 4.5).toFixed(1)}</span>
-          </div>
         </div>
         <PriceBadge
           data-hero-badge
@@ -493,9 +489,6 @@ function ItemSheet({ item, lenis, onClose }) {
         <div className="mt-3 flex flex-wrap items-center gap-2">
           <span className="inline-flex items-center gap-1.5 rounded-full bg-cream px-3 py-1.5 text-[13px] font-bold">
             <VegMark veg={item.is_veg} /> {item.is_veg ? 'Veg' : 'Non-veg'}
-          </span>
-          <span className="inline-flex items-center gap-1.5 rounded-full bg-cream px-3 py-1.5 text-[13px] font-bold">
-            <Stars value={Number(item.rating) || 4.5} /> {Number(item.rating || 4.5).toFixed(1)}
           </span>
           {!item.is_available && (
             <span className="rounded-full bg-espresso px-3 py-1.5 text-[13px] font-bold text-cream">Sold out today</span>

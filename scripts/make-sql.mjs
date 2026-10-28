@@ -7,7 +7,7 @@ const q = (v) => (v === null || v === undefined ? 'null' : typeof v === 'string'
 const row = (obj, cols) => `(${cols.map((c) => q(obj[c])).join(', ')})`
 
 const catCols = ['id', 'name', 'script', 'sort']
-const itemCols = ['id', 'category_id', 'script', 'name', 'description', 'price', 'old_price', 'is_veg', 'image_url', 'is_available', 'is_hidden', 'is_featured', 'rating', 'sort']
+const itemCols = ['id', 'category_id', 'script', 'name', 'description', 'price', 'old_price', 'is_veg', 'image_url', 'is_available', 'is_hidden', 'is_featured', 'sort']
 const setCols = Object.keys(seedSettings)
 
 const sql = `-- La Pausa Caffè menu — run this whole file once in Supabase → SQL Editor.
@@ -35,7 +35,6 @@ create table if not exists public.items (
   is_available boolean not null default true,
   is_hidden boolean not null default false,
   is_featured boolean not null default false,
-  rating numeric(2,1) default 4.5,
   sort int not null default 0,
   created_at timestamptz default now()
 );

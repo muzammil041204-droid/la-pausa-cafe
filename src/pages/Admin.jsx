@@ -239,7 +239,6 @@ function ItemsTab({ run }) {
     is_available: true,
     is_hidden: false,
     is_featured: false,
-    rating: 4.5,
     sort: Math.max(0, ...items.map((i) => i.sort || 0)) + 1,
   })
 
@@ -403,7 +402,6 @@ function ItemEditor({ initial, run, onClose }) {
       description: f.description.trim(),
       price,
       old_price: old && old > price ? old : null,
-      rating: Math.min(5, Math.max(0, Number(f.rating) || 0)),
     }
     setBusy(true)
     const ok = await run(() => actions.saveItem(item), isNew ? 'Item added' : 'Saved')
@@ -508,9 +506,6 @@ function ItemEditor({ initial, run, onClose }) {
               ))}
             </div>
           </div>
-          <Field label="Rating (0 – 5)">
-            <input inputMode="decimal" value={f.rating} onChange={(e) => set('rating')(e.target.value.replace(/[^\d.]/g, ''))} className={inputCls} />
-          </Field>
         </div>
 
         <div className="mt-4 divide-y divide-espresso/10 rounded-3xl bg-paper px-4">

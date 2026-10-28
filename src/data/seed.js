@@ -85,6 +85,5 @@ export const seedItems = rows.map(([id, category_id, script, name, description, 
   is_available: true,
   is_hidden: false,
   is_featured: id === 'chicken-burger',
-  rating: 4.5,
   sort: i + 1,
 }))
